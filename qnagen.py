@@ -1,24 +1,22 @@
 # -*- coding: utf-8 -*-
 """
 
-Random Q&A generator using Pandas.
+Q&A generator using Pandas and Random.
 
 """
 
 import pandas
+import random
 
-q = pandas.read_excel("izvucena_pitanja.xlsx", "sheet", None, None, None, "A")
-a = pandas.read_excel("izvucena_pitanja.xlsx", "sheet", None, None, None, "B")
+qna = pandas.read_excel("izvucena_pitanja.xlsx", "sheet", usecols = "A,B")
+qnad = qna.to_dict('index')
 
-qna = {'Pitanje': q,
-       'Odgovor': a
-       }
+while True:
+    r = random.randint(0, len(qnad))
+    print(qnad[r]["ПИТАЊЕ"])
 
-df = pandas.DataFrame([qna], columns = ['Pitanje', 'Odgovor'])
-
-p1 = q.sample()
-p2 = a.sample()
-
-
-print(p1)
-print(p2)
+    a = input()
+    if(a == ""):
+        print(qnad[r]["ОДГОВОР"])
+        
+    print()
