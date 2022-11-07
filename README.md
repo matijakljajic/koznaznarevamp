@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/matijakljajic/koznaznarevamp/main/resources/main.png" alt="logo">
+  <img src="https://raw.githubusercontent.com/matijakljajic/koznaznarevamp/main/resources/main/main.png" alt="logo">
   <h1 align="center" style="margin: 0 auto 0 auto;">KO ZNA ZNA - REVAMP</h1>
   </p>
 
