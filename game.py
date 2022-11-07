@@ -7,6 +7,7 @@ import random
 from pyvidplayer import Video
 from mailer import Mailer
 
+import urllib.request
 
 pygame.init()
 clock = pygame.time.Clock()
@@ -14,6 +15,13 @@ font = pygame.font.Font("resources/font.ttf", 40)
 counterfont = pygame.font.Font("resources/font.ttf", 50)
 
 restriction = 30
+
+def connect(host='http://google.com'):
+    try:
+        urllib.request.urlopen(host)
+        return True
+    except:
+        return False
 
 # textwrap
 textAlignLeft = 0
@@ -104,13 +112,14 @@ def Game():
     button0 = pygame.image.load('resources/buttons/game/main_button01-0.png')
     button1 = pygame.image.load('resources/buttons/game/main_button02-0.png')
     button2 = pygame.image.load('resources/buttons/game/main_button03-0.png')
-    
+    button3 = pygame.image.load('resources/buttons/game/main_button04-0.png')
+
     # game music
     music = pygame.mixer.music.load("resources/game/background_music.mp3")
     pygame.mixer.music.play(-1)
 
     ba = False
-    r = random.randint(0, len(qnad))
+    r = random.randrange(0, len(qnad), 3)
 
     while running:
         posm = pygame.mouse.get_pos()
@@ -125,6 +134,7 @@ def Game():
         window.blit(button0,(601,477))
         window.blit(button1,(601,541))
         window.blit(button2,(601,605))
+        window.blit(button3,(316,396))
         window.blit(it, it_rect) #35
         if ba:
             window.blit(a, a_rect)
@@ -151,6 +161,11 @@ def Game():
         else:
             button2 = pygame.image.load('resources/buttons/game/main_button03-0.png')
         
+        if posm[0] > 316 and posm[0] < 396 and posm[1] > 372 and posm[1] < 452:
+            button3 = pygame.image.load('resources/buttons/game/main_button04-1.png')
+        else:
+            button3 = pygame.image.load('resources/buttons/game/main_button04-0.png')
+
         for event in pygame.event.get():
             if event.type == QUIT:
                 running = False
@@ -165,10 +180,14 @@ def Game():
                         ba = False
                         r = random.randint(0, len(qnad))
                     elif posm[0] > 601 and posm[0] < 1101 and posm[1] > 605 and posm[1] < 643:
-                        mail = Mailer(email='koznaznarevamp@hotmail.com', password='bdujetofzsrevmvs')
-                        mail.settings(provider=mail.MICROSOFT)
-                        mail.send(receiver='matijakljajic173@gmail.com', subject='ПРИЈАВА ГРЕШКЕ', message=("ПИТАЊЕ: %s\n ОДГОВОР: %s" % (q, qnad[r]["ОДГОВОР"])))
-        
+                        if connect():
+                            mail = Mailer(email='koznaznarevamp@hotmail.com', password='bdujetofzsrevmvs')
+                            mail.settings(provider=mail.MICROSOFT)
+                            mail.send(receiver='matijakljajic173@gmail.com', subject='ПРИЈАВА ГРЕШКЕ', message=("ПИТАЊЕ: %s\n ОДГОВОР: %s" % (q, qnad[r]["ОДГОВОР"])))
+                    elif posm[0] > 316 and posm[0] < 396 and posm[1] > 372 and posm[1] < 452:
+                        Main()
+
+
         clock.tick(60)
         pygame.display.flip()
 
