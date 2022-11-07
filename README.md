@@ -10,6 +10,10 @@ Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generat
 
 *Some questions have issues because Anansi interpreted them in a wrong way, this can be fixed with the report system I did (~~I intend to do~~)*
 
+<p align="center">
+<b><i>Please report the questions you find inadequate</i></b>
+</p>
+
 ## Progress
 
 - [x] Basic functionality
