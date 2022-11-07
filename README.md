@@ -4,7 +4,7 @@
   </p>
 
 A small project done in Python for one of the uni courses. 
-Let's call it a subfork of a Serbian TV show adapted for hosting pub quizes.
+Let's call it a subfork of a Serbian TV show adapted for hosting pub quizes in Serbian.
 
 Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generator](https://github.com/ilic5000/pabkvizgenerator) made with the Anansi crawler.
 
