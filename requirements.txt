@@ -1,4 +1,5 @@
-mailer==0.8.1
-pandas==1.5.1
-pygame==2.1.2
-quick_mailer==2022.2.22
+discord_webhook
+ffpyplayer
+pandas
+pygame
+pymediainfo
