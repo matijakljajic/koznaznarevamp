@@ -1,3 +1,4 @@
+import sys
 import pygame
 from pygame.locals import *
 
@@ -5,7 +6,7 @@ import pandas
 import random
 
 from pyvidplayer import Video
-from mailer import Mailer
+from discord_webhook import DiscordWebhook
 
 import urllib.request
 
@@ -83,7 +84,9 @@ def drawText(surface, text, color, rect, font, align=textAlignLeft, aa=True, bkg
 qna = pandas.read_excel("resources/izvucena_pitanja.xlsx", "sheet", usecols = "A,B")
 qnad = qna.to_dict('index')
 
-
+# intro music
+music = pygame.mixer.music.load("resources/main/intro.mp3")
+pygame.mixer.music.play()
 
 
 # game window
@@ -95,9 +98,6 @@ icon = pygame.image.load('resources/icon.ico')
 pygame.display.set_icon(icon)
 pygame.display.toggle_fullscreen()
 
-# intro music
-music = pygame.mixer.music.load("resources/main/intro.mp3")
-pygame.mixer.music.play()
 
 # Game
 def Game():
@@ -119,6 +119,7 @@ def Game():
     pygame.mixer.music.play(-1)
 
     ba = False
+    spam = True
     r = random.randrange(0, len(qnad), 3)
 
     while running:
@@ -178,13 +179,15 @@ def Game():
                     elif posm[0] > 601 and posm[0] < 1101 and posm[1] > 541 and posm[1] < 579:
                         i = i + 1
                         ba = False
+                        spam = True
                         r = random.randint(0, len(qnad))
                     elif posm[0] > 601 and posm[0] < 1101 and posm[1] > 605 and posm[1] < 643:
-                        if connect():
-                            mail = Mailer(email='koznaznarevamp@hotmail.com', password='bdujetofzsrevmvs')
-                            mail.settings(provider=mail.MICROSOFT)
-                            mail.send(receiver='matijakljajic173@gmail.com', subject='ПРИЈАВА ГРЕШКЕ', message=("ПИТАЊЕ: %s\n ОДГОВОР: %s" % (q, qnad[r]["ОДГОВОР"])))
+                        if connect() and spam:
+                            webhook = DiscordWebhook(url="https://discord.com/api/webhooks/1039583452892250242/RwRC8T044RmEZlFdeNzzE9iFE2GqUF7aptS5j99cBueD27qwHTV-6M022OsPD-o3Lcds", content=("ПРИЈАВА ГРЕШКЕ:\n```ПИТАЊЕ: %s\n\nОДГОВОР: %s```" % (q, qnad[r]["ОДГОВОР"])))
+                            spam = False
+                            webhook.execute()
                     elif posm[0] > 316 and posm[0] < 396 and posm[1] > 372 and posm[1] < 452:
+                        pygame.mixer.music.pause()
                         Main()
 
 
@@ -192,7 +195,7 @@ def Game():
         pygame.display.flip()
 
     pygame.quit()
-    quit()
+    sys.exit()
  
 
 # Settings
@@ -253,10 +256,10 @@ def Transition():
     vid = Video("resources/transition/transition.mp4")
     vid.set_size((1280,720))
     while vid.active==True:
-        vid.draw(window, (0,0))
+        vid.draw(window, (0,0), force_draw=False)
         pygame.display.update()
         for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 vid.close()
                 Game()
     vid.close()
@@ -314,13 +317,10 @@ def Main():
 
                     elif posm[0] > 1208 and posm[0] < 1264 and posm[1] > 17 and posm[1] < 73:
                         pygame.quit()
-                        quit()
+                        sys.exit()
     
     
         clock.tick(60)
         pygame.display.flip()
-
-    pygame.quit()
-    quit()
 
 Main()
