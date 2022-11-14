@@ -19,6 +19,7 @@ Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generat
 - [x] Basic functionality
 - [x] Basic UI and art
 - [x] System intended for issue reporting
+- [] Points system used in tandem with NLP library recognising if the typed answer is indeed correct
 
 
 ## Thought process
