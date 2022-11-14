@@ -119,6 +119,7 @@ def Game():
     pygame.mixer.music.play(-1)
 
     ba = False
+    bb = False
     spam = True
     r = random.randrange(0, len(qnad), 3)
 
@@ -133,9 +134,11 @@ def Game():
 
         window.blit(bg_img,(0,0))
         window.blit(button0,(601,477))
-        window.blit(button1,(601,541))
-        window.blit(button2,(601,605))
-        window.blit(button3,(316,396))
+        if bb:
+            window.blit(button1,(601,477))
+        if spam:
+            window.blit(button2,(601,541))
+        window.blit(button3,(1208,17))
         window.blit(it, it_rect) #35
         if ba:
             window.blit(a, a_rect)
@@ -152,17 +155,17 @@ def Game():
         else:
             button0 = pygame.image.load('resources/buttons/game/main_button01-0.png')
 
-        if posm[0] > 601 and posm[0] < 1101 and posm[1] > 541 and posm[1] < 579:
+        if posm[0] > 601 and posm[0] < 1101 and posm[1] > 477 and posm[1] < 515:
             button1 = pygame.image.load('resources/buttons/game/main_button02-1.png')
         else:
             button1 = pygame.image.load('resources/buttons/game/main_button02-0.png')
 
-        if posm[0] > 601 and posm[0] < 1101 and posm[1] > 605 and posm[1] < 643:
+        if posm[0] > 601 and posm[0] < 1101 and posm[1] > 541 and posm[1] < 579:
             button2 = pygame.image.load('resources/buttons/game/main_button03-1.png')
         else:
             button2 = pygame.image.load('resources/buttons/game/main_button03-0.png')
         
-        if posm[0] > 316 and posm[0] < 396 and posm[1] > 372 and posm[1] < 452:
+        if posm[0] > 1208 and posm[0] < 1264 and posm[1] > 17 and posm[1] < 73:
             button3 = pygame.image.load('resources/buttons/game/main_button04-1.png')
         else:
             button3 = pygame.image.load('resources/buttons/game/main_button04-0.png')
@@ -173,20 +176,21 @@ def Game():
 
             if event.type == MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    if posm[0] > 601 and posm[0] < 1101 and posm[1] > 477 and posm[1] < 515:
+                    if posm[0] > 601 and posm[0] < 1101 and posm[1] > 477 and posm[1] < 515 and bb == False:
                         ba = True
-
-                    elif posm[0] > 601 and posm[0] < 1101 and posm[1] > 541 and posm[1] < 579:
+                        bb = True
+                    elif posm[0] > 601 and posm[0] < 1101 and posm[1] > 477 and posm[1] < 515:
                         i = i + 1
                         ba = False
+                        bb = False
                         spam = True
                         r = random.randint(0, len(qnad))
-                    elif posm[0] > 601 and posm[0] < 1101 and posm[1] > 605 and posm[1] < 643:
+                    elif posm[0] > 601 and posm[0] < 1101 and posm[1] > 541 and posm[1] < 579:
                         if connect() and spam:
                             webhook = DiscordWebhook(url="https://discord.com/api/webhooks/1039583452892250242/RwRC8T044RmEZlFdeNzzE9iFE2GqUF7aptS5j99cBueD27qwHTV-6M022OsPD-o3Lcds", content=("ПРИЈАВА ГРЕШКЕ:\n```ПИТАЊЕ: %s\n\nОДГОВОР: %s```" % (q, qnad[r]["ОДГОВОР"])))
                             spam = False
                             webhook.execute()
-                    elif posm[0] > 316 and posm[0] < 396 and posm[1] > 372 and posm[1] < 452:
+                    elif posm[0] > 1208 and posm[0] < 1264 and posm[1] > 17 and posm[1] < 73:
                         pygame.mixer.music.pause()
                         Main()
 
