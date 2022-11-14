@@ -1,5 +1,4 @@
 discord_webhook
-ffpyplayer
+opencv_python
 pandas
 pygame
-pymediainfo

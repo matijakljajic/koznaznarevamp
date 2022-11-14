@@ -5,7 +5,7 @@ from pygame.locals import *
 import pandas
 import random
 
-from pyvidplayer import Video
+import cv2
 from discord_webhook import DiscordWebhook
 
 import urllib.request
@@ -253,16 +253,30 @@ def Settings():
 
 # Transition
 def Transition():
-    vid = Video("resources/transition/transition.mp4")
-    vid.set_size((1280,720))
-    while vid.active==True:
-        vid.draw(window, (0,0), force_draw=False)
-        pygame.display.update()
+    music = pygame.mixer.music.load("resources/transition/transition.mp3")
+    pygame.mixer.music.play()
+    capture = cv2.VideoCapture("resources/transition/transition.mp4")
+    
+    success, camera_image = capture.read()
+
+    run = success
+    while run:
         for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
-                vid.close()
+            if event.type == QUIT:
+                run = False
+            if event.type == MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+                pygame.mixer.music.pause()
                 Game()
-    vid.close()
+    
+        success, camera_image = capture.read()
+        if success:
+            camera_surf = pygame.image.frombuffer(camera_image.tobytes(), camera_image.shape[1::-1], "BGR")
+        else:
+            run = False
+        window.blit(camera_surf, (0, 0))
+        clock.tick(25)
+        pygame.display.flip()
+
     Game()
 
 # main while loop
