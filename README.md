@@ -29,3 +29,18 @@ Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generat
 - Basic functionality is based upon ***qnagen.py***.
 - Basic UI and art is something else to say the least. I used pygame and couple more libraries in combination with the art from the actual tv show. The whole project could have been done a lot faster if I used something else and not pygame. Will use Python just for scripts in the future - would rather use some other language for the GUI/UI etc.
 - Issue reporting works using Discord webhooks (~~mail~~). If an issue with a question/answer has been found, the user can notify me to change it in the excel sheet in due time over a button.
+
+
+## How to run
+
+### Regular installation
+
+- Download the latest release over the download button at the top of this README
+- Install the program (It's preferable if you leave the default installation location, you can unistall over control panel later if you want)
+- Run
+
+### Over code
+
+- If on Windows, execute run.bat to install needed libraries
+- If on Linux/Mac, execute run.sh to install needed libraries
+- Open game.py and run
