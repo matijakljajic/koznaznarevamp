@@ -249,7 +249,7 @@ def Settings():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
                     user_text = user_text[:-1]
-                else:
+                elif event.unicode.isdigit():
                     user_text += event.unicode
     
         clock.tick(60)
