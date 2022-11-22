@@ -36,8 +36,10 @@ Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generat
 ### Regular installation
 
 - Download the latest release over the download button at the top of this README
-- Install the program (It's preferable if you leave the default installation location, you can unistall over control panel later if you want)
+- Install the program (It's preferable if you leave the default installation location, you can uninstall over control panel later if you want)
 - Run
+
+<sub>(When updating, it is recommended to deinstall the old version before installing the new one. You can ignore this  recommendation if you find it inconvenient)</sub>
 
 ### Over code
 
