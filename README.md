@@ -44,3 +44,7 @@ Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generat
 - If on Windows, execute run.bat to install needed libraries
 - If on Linux/Mac, execute run.sh to install needed libraries
 - Open game.py and run
+
+
+##
+<sup>Ауторска права над именом "Слагалица" држи РТС и екипа.</sup>
