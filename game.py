@@ -239,7 +239,7 @@ def Settings():
             if event.type == MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if posm[0] > 326 and posm[0] < 826 and posm[1] > 438 and posm[1] < 476:
-                        if user_text.isdigit():
+                        if user_text.isdigit() and int(user_text) <= 999:
                             restriction = int(user_text)
                             Main()
                 if input_rect.collidepoint(event.pos):
