@@ -3,7 +3,7 @@
   <h1 align="center" style="margin: 0 auto 0 auto;">KO ZNA ZNA - REVAMP</h1>
   </p>
 
-[![portfolio](https://img.shields.io/badge/portfolio-2ea44f?style=for-the-badge)](https://matijakljajic.github.io/) [![project](https://img.shields.io/badge/project-2ea44f?style=for-the-badge)](https://matijakljajic.github.io/koznaznarevamp/) [![Download](https://img.shields.io/badge/Download-2ea44f?style=for-the-badge)](https://github.com/matijakljajic/koznaznarevamp/releases/download/v1.0.2/KOZNAZNA102.exe)
+[![portfolio](https://img.shields.io/badge/portfolio-2ea44f?style=for-the-badge)](https://matijakljajic.github.io/) [![project](https://img.shields.io/badge/project-2ea44f?style=for-the-badge)](https://matijakljajic.github.io/koznaznarevamp/) [![Download](https://img.shields.io/badge/Download-2ea44f?style=for-the-badge)](https://github.com/matijakljajic/koznaznarevamp/releases/download/v1.0.3/KOZNAZNA103.exe)
 
 A small project done in Python for one of the uni courses. 
 Let's call it a subfork of a Serbian TV show adapted for hosting pub quizes in Serbian.
