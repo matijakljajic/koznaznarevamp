@@ -3,10 +3,10 @@
   <h1 align="center" style="margin: 0 auto 0 auto;">KO ZNA ZNA - REVAMP</h1>
   </p>
 
-[![portfolio](https://img.shields.io/badge/portfolio-2ea44f?style=for-the-badge)](https://matijakljajic.github.io/) [![project](https://img.shields.io/badge/project-2ea44f?style=for-the-badge)](https://matijakljajic.github.io/koznaznarevamp/) [![Download](https://img.shields.io/badge/Download-2ea44f?style=for-the-badge)](https://github.com/matijakljajic/koznaznarevamp/releases/download/v1.0.3/KOZNAZNA103.exe)
+[![portfolio](https://img.shields.io/badge/portfolio-2ea44f?style=for-the-badge)](https://matijakljajic.github.io/) [![Download](https://img.shields.io/badge/Download-2ea44f?style=for-the-badge)](https://github.com/matijakljajic/koznaznarevamp/releases/download/v1.0.3/KOZNAZNA103.exe)
 
 A small project done in Python for one of the uni courses. 
-Let's call it a subfork of a Serbian TV show adapted for hosting pub quizes in Serbian.
+It's kind of a fork of a Serbian TV show, but adapted for hosting pub quizes in Serbian.
 
 Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generator](https://github.com/ilic5000/pabkvizgenerator) made with the Anansi crawler.
 
@@ -15,6 +15,8 @@ Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generat
 <p align="center">
 <b><i>Please report the questions you find inadequate</i></b>
 </p>
+
+***UPDATE: Reports work, but won't be looked at. This repository is archived. There may be a version which will supersede this code.***
 
 ## Progress
 
@@ -48,5 +50,5 @@ Inspired by [Nenad Ilić](https://github.com/ilic5000) and his [pub quiz generat
 - Open game.py and run
 
 
-##
+## Copyright notice in Serbian
 <sup>Овај рад нема намеру да крши било каква ауторска права. Ауторска права над именом "Слагалица" држи РТС и екипа.</sup>
